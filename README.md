@@ -15,5 +15,23 @@ var flags = flg('+foo', defaults)
 flags  // -> { foo: true, bar: true }
 ```
 
-Boom.
+The plus sign is implied. And spaces are optional.
+
+```
+flg('foo')  // -> { foo: true }
+flg('-foo+bar')  // -> { foo: false, bar: true }
+```
+
+You can also stringify an object into a string.
+
+```
+flg.stringify({ foo: true })  // -> '+foo'
+```
+
+And if you pass a defaults object, it will omit any values which are the same as the default.
+
+```
+var defaults = { foo: false, bar: true }
+flg.stringify({ foo: false, baz: true }, defaults) // -> '+baz'
+```
 
