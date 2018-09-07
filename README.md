@@ -1,5 +1,7 @@
 # FLG
 
+[![Build Status](https://travis-ci.org/fabiosantoscode/flg.svg?branch=master)](https://travis-ci.org/fabiosantoscode/flg)
+
 Flg is the simplest thing ever. You give it a string with "+" and "-" and flags in it, and it returns an object.
 
 ```javascript
