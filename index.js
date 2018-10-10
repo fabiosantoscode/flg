@@ -16,18 +16,17 @@ module.exports = function (s, defaults) {
 
 module.exports.stringify = function (object, defaults) {
   var out = ''
-  for (var key in object) {
-    if (Object.prototype.hasOwnProperty.call(object, key)) {
-      var value = Boolean(object[key])
-      var defaultValue = defaults && Boolean(defaults[key])
-      if (defaults && value === defaultValue) {
-        continue
-      }
-      out += value === true
-        ? ' +' + key
-        : ' -' + key
+  var keys = Object.keys(object)
+  keys.forEach(function (key) {
+    var value = Boolean(object[key])
+    var defaultValue = defaults && Boolean(defaults[key])
+    if (defaults && value === defaultValue) {
+      return
     }
-  }
+    out += value === true
+      ? ' +' + key
+      : ' -' + key
+  })
   return out.substring(1)  // trim starting space
 }
 

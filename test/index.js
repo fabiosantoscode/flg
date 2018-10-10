@@ -5,6 +5,9 @@ var ok = require('assert')
 var flg = require('..')
 
 describe('flg', function () {
+  it('can take an empty string', function () {
+    ok.deepEqual(flg(), {})
+  })
   it('does what says on the tin', function () {
     ok.deepEqual(flg('+foo -bar +baz'), {
       foo: true,
