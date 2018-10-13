@@ -1,6 +1,6 @@
 # FLG
 
-[![Build Status](https://travis-ci.org/fabiosantoscode/flg.svg?branch=master)](https://travis-ci.org/fabiosantoscode/flg)
+[![Build Status](https://travis-ci.org/fabiosantoscode/flg.svg?branch=master)](https://travis-ci.org/fabiosantoscode/flg) [![Coverage Status](https://coveralls.io/repos/github/fabiosantoscode/flg/badge.svg?branch=master)](https://coveralls.io/github/fabiosantoscode/flg?branch=master)
 
 Flg is the simplest thing ever. You give it a string with "+" and "-" and flags in it, and it returns an object.
 
