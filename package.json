@@ -5,14 +5,30 @@
   "main": "index.js",
   "scripts": {
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "istanbul cover ./node_modules/.bin/_mocha"
+    "test": "istanbul cover ./node_modules/.bin/_mocha",
+    "precommit": "npm run lint --silent && npm run test --silent",
+    "lint": "eslint --fix 'index.js' 'test/**/*.js'"
   },
   "author": "The Fabs",
   "license": "WTFPL",
   "repository": "https://github.com/fabiosantoscode/flg.git",
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "istanbul": "^0.4.5",
+    "eslint": "^5.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.1.2",
+    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "globals": {
+      "describe": false,
+      "it": false
+    }
   }
 }

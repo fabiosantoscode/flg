@@ -18,8 +18,8 @@ module.exports.stringify = function (object, defaults) {
   var out = ''
   var keys = Object.keys(object)
   keys.forEach(function (key) {
-    var value = Boolean(object[key])
-    var defaultValue = defaults && Boolean(defaults[key])
+    var value = !!object[key]
+    var defaultValue = defaults && !!defaults[key]
     if (defaults && value === defaultValue) {
       return
     }
@@ -27,6 +27,5 @@ module.exports.stringify = function (object, defaults) {
       ? ' +' + key
       : ' -' + key
   })
-  return out.substring(1)  // trim starting space
+  return out.substring(1) // trim starting space
 }
-
