@@ -40,6 +40,6 @@ describe('flg.stringify', function () {
   })
   it('can stringify without mentioning defaults', function () {
     var defaults = { foo: true }
-    ok.strictEqual(flg.stringify({ foo: true }, defaults), '')
+    ok.strictEqual(flg.stringify({ foo: true, bar: false }, defaults), '-bar')
   })
 })

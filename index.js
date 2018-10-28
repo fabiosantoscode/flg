@@ -19,8 +19,9 @@ module.exports.stringify = function (object, defaults) {
   var keys = Object.keys(object)
   keys.forEach(function (key) {
     var value = !!object[key]
+    var hasDefault = defaults && (key in defaults)
     var defaultValue = defaults && !!defaults[key]
-    if (defaults && value === defaultValue) {
+    if (defaults && hasDefault && value === defaultValue) {
       return
     }
     out += value === true
