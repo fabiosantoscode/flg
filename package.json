@@ -9,6 +9,9 @@
     "precommit": "npm run lint --silent && npm run test --silent",
     "lint": "eslint --fix 'index.js' 'test/**/*.js'"
   },
+  "files": [
+    "index.js"
+  ],
   "author": "The Fabs",
   "license": "WTFPL",
   "repository": "https://github.com/fabiosantoscode/flg.git",
