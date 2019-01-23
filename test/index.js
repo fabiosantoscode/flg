@@ -34,7 +34,7 @@ describe('flg.stringify', function () {
   it('can stringify objects back to a flg string', function () {
     ok.strictEqual(
       flg.stringify({ foo: true, bar: false, baz: 0 }),
-      '+foo -bar -baz'
+      '-bar -baz +foo'
     )
     ok.strictEqual(flg.stringify({}), '')
   })

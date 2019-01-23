@@ -3,20 +3,21 @@
 module.exports = function (s, defaults) {
   s = s || ''
   var tags = s.split(/(\s+|(?=[+-]))/)
-  var out = defaults || {}
-  for (var i = 0; i < tags.length; i++) {
-    if (tags[i].trim() === '') {
-      continue
-    }
-    var isOn = tags[i][0] !== '-'
-    out[tags[i].replace(/^[-+]/, '')] = isOn
-  }
-  return out
+  var out = {}
+  Object.keys(defaults || {}).forEach(function (key) {
+    out[key] = defaults[key]
+  })
+  return tags.reduce(function (accum, tag) {
+    tag = tag.trim()
+    if (tag) accum[tag.replace(/^[+-]/, '')] = tag[0] !== '-'
+    return accum
+  }, out)
 }
 
-module.exports.stringify = function (object, defaults) {
+module.exports.stringify = function (object, defaults, options) {
+  options = options || {}
   var out = ''
-  var keys = Object.keys(object)
+  var keys = Object.keys(object).sort()
   keys.forEach(function (key) {
     var value = !!object[key]
     var hasDefault = defaults && (key in defaults)
@@ -24,9 +25,10 @@ module.exports.stringify = function (object, defaults) {
     if (defaults && hasDefault && value === defaultValue) {
       return
     }
+    if (options.spaces !== false) out += ' '
     out += value === true
-      ? ' +' + key
-      : ' -' + key
+      ? '+' + key
+      : '-' + key
   })
   return out.substring(1) // trim starting space
 }
